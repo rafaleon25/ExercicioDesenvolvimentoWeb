@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.exercicio;
+package Classes;
 
 /**
  *
  * @author Rafael Rodrigues
  */
-public class Produto {
-    
+public class ProdutoException extends Exception{
+    public ProdutoException (String message){
+        super(message);
+    }
 }
