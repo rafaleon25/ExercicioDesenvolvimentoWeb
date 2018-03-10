@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package Validadores;
 
-import java.util.Calendar;
+import Classes.Produto;
+import Exceptions.ProdutoException;
 
 /**
  *
  * @author Rafael Rodrigues
  */
-public class ValidadorCadastroProd {
+public class ValidadorProd {
 
     public static void validar(Produto prod) throws ProdutoException {
 

@@ -10,7 +10,7 @@
 <html>
     <head>
 
-        <title>Consultar cliente</title>
+        <title>Consultar produtos</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -55,22 +55,10 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-                <div class="grid_12">
-                    <div id="logo">
-                        <a  href="#">
-                            <img src="${pageContext.request.contextPath}/images/logo.png" alt="Your Happy Family">
-                        </a>
-                    </div>
-                </div>
+
 
             </div>
-            <form action="${pageContext.request.contextPath}/Logout" method="post">
-                <div class="form-footer" id="logout">
 
-                    <button class="botoesLogout" type="submit">logout</button>
-
-                </div>
-            </form>  
         </header>
 
         <div class="content"><div class="ic"></div>
@@ -79,24 +67,24 @@
                 <div class="grid_8">
                     <div class="tituloCliente">
 
-                        <h5 class="opcao">CONSULTAR CLIENTE </h5>
+                        <h5 class="opcao">CONSULTAR PRODUTOS</h5>
 
                     </div>          
 
 
 
-                    <form class="buscaCliente"  action="${pageContext.request.contextPath}/ConsultarCliente" method="post">
+                    <form class="buscaCliente"  action="${pageContext.request.contextPath}/ConsultarProd" method="post">
 
-                       
+
 
                         <div class="busca">
-                            <input type="text" maxlength="11" id="busca1" placeholder="Digite o CPF" name="buscaCliente">
+                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaProd">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
 
                     </form>
 
-                    <form class="editCli" action="${pageContext.request.contextPath}/EditarCliente" method="post">
+                    <form class="editCli" action="${pageContext.request.contextPath}/EditarProd" method="post">
 
                         <div id="bg"></div>
                         <div id="tabelaConsultaCliente">
@@ -105,7 +93,7 @@
                                     <th></th>
                                     <th>Nome</th>
                                     <th>Descrição</th>
-                                    <th>quantidade</th>
+                                    <th>Quantidade</th>
                                     <th>Preço de Compra</th>
                                     <th>Preço de Venda</th>    
                                     <th style="visibility: hidden">ID</th>
@@ -121,7 +109,7 @@
                                             <td>${cli.cpf}</td>
                                             <td>${cli.email}</td>
                                             <td>${cli.celular}</td>
-                                            
+
                                             <td style="visibility: hidden">${cli.id}</td>
                                         </tr>
                                     </c:forEach>
@@ -150,22 +138,10 @@
                         </div>
 
                         <div class="form-footer">
-                            <button class="botoes" name="btnExluir" value="exluirCli">EXCLUIR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" name="btnEditar" value="editarCli">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                            <button class="botoes" name="btnExluir" value="exluirProd">EXCLUIR<span class="fa fa-ban"></span></button>
+                            <button class="botoes" name="btnEditar" value="editarProd">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
                         </div>
                     </form>
-                </div>
-
-
-                <div class="grid_3 prefix_1">
-
-                    <h5 class="opcao">Opção </h5>
-                    <ul class="list">
-
-                        <li><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cadastrar</a></li>
-                        <li><a href="#">Consultar</a></li>
-
-                    </ul>
                 </div>
             </div>
         </div>
@@ -173,24 +149,8 @@
         <!--==============================footer=================================-->
 
         <footer>
-            <div class="container_12">
-                <div class="grid_12">
-                    <div class="socials">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-google-plus"></a>
-                    </div>
-                    <div class="copy">
-                        Your Trip (c) 2017 | <a href="#">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
+            
         </footer>
-        <script>
-            $(function () {
-                $('#bookingForm').bookingForm({
-                    ownerEmail: '#'
-                });
-            })
-        </script>
+       
     </body>
 </html>
