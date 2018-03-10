@@ -14,9 +14,9 @@ public class Constants {
 
     //URL de conexão com o banco de dados
     public static final String DB_ADDRESS
-            = "jdbc:mysql://35.199.120.120:3306/CIA_Aerea";
+            = "jdbc:mysql://35.199.99.136:3306/PRODUTOBD";
     //Usuário de conexão com o banco de dados
-    public static final String DB_USER = "projeto3";
+    public static final String DB_USER = "leitor";
     //Senha de conexão com o banco de dados
     public static final String DB_PASS = "123456";
 }

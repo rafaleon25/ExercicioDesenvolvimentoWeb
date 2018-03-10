@@ -6,6 +6,7 @@
 package Classes;
 //id, nome, desc, prec compra, prec venda, qtd
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,6 +18,7 @@ public class Produto {
     private String nome, descricao;
     private Double precoCompra, precoVenda;
     private Date dataCadastro;
+    private ArrayList<Categoria> cat = new ArrayList<>();
 
     public Produto() {
     }
@@ -28,8 +30,22 @@ public class Produto {
         this.precoCompra = precoCompra;
         this.precoVenda = precoVenda;
     }
-    
-    
+
+    public ArrayList<Categoria> getCat() {
+        return cat;
+    }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public void setCat(ArrayList<Categoria> cat) {
+        this.cat = cat;
+    }
 
     public int getId() {
         return id;
