@@ -5,7 +5,7 @@
  */
 package Classes;
 
-import br.senac.tads3.pi3b.leonsdev.DAOs.DaoClientes;
+import DAOs.DaoClientes;
 import java.util.List;
 
 /**
