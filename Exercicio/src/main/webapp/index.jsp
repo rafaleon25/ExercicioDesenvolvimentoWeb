@@ -96,7 +96,7 @@
                                     <input type="text" placeholder="Descrição*" value="${requestScope.prodRepreenche.descricao}" name="descricao-prod">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="quantidade*"   value="${requestScope.prodRepreenche.quantidade}" name="qtd-prod"/>
+                                    <input type="number" placeholder="quantidade*"   value="${requestScope.prodRepreenche.quantidade}" name="quantidade-prod"/>
                                 </div>
                                 <div class="row">
                                     <input type="number" placeholder="preço de Compra*" value="${requestScope.prodRepreenche.precoCompra}" name="preco-compra">

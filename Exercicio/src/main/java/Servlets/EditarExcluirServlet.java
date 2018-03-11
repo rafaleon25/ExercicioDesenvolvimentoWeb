@@ -63,7 +63,7 @@ public class EditarExcluirServlet extends HttpServlet {
 
             sessao.setAttribute("produto", prod);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarCliente.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarProd.jsp");
             dispatcher.forward(request, response);
 
         } else if (btnExcluir != null) {
@@ -76,7 +76,7 @@ public class EditarExcluirServlet extends HttpServlet {
 
             }
 
-            response.sendRedirect(request.getContextPath() + "/consultarCliente.jsp");
+            response.sendRedirect(request.getContextPath() + "/consultarProd.jsp");
 
         }
     }

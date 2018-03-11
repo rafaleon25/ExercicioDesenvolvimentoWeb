@@ -40,7 +40,7 @@ public class daoObter {
 
             //Executa a consulta SQL no banco de dados
             result = preparedStatement.executeQuery();
-
+            result.next();
             produto.setId(result.getInt("ID"));
             produto.setDescricao(result.getString("DESCRICAO"));
             produto.setNome(result.getString("NOME"));

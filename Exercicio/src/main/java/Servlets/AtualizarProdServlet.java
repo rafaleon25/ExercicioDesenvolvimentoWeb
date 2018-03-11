@@ -96,6 +96,8 @@ public class AtualizarProdServlet extends HttpServlet {
         } catch (ProdutoException | DataExceptions e) {
             request.setAttribute("erroCadastro", e.getMessage());
             request.setAttribute("prodRepreenche", prod);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/editarProd.jsp");
+            dispatcher.forward(request, response);
         }
         sessao.setAttribute("prod", prod);
 
