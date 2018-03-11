@@ -11,20 +11,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Josué
  */
 public class daoObter {
-    public static List<Produto> procurar(int valor)
+
+    public static Produto obter(int valor)
             throws SQLException, Exception {
-    
+
         String sql = "SELECT * FROM PRODUTO WHERE ID=?";
-    
-        List<Produto> listaProdutos = null;
+        Produto produto = new Produto();
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -43,24 +41,15 @@ public class daoObter {
             //Executa a consulta SQL no banco de dados
             result = preparedStatement.executeQuery();
 
-            //Itera por cada item do resultado
-            while (result.next()) {
-                //Se a lista não foi inicializada, a inicializa
-                if (listaProdutos == null) {
-                    listaProdutos = new ArrayList<>();
-                }
-    
-                Produto produto = new Produto();
-                produto.setId(result.getInt("ID"));
-                produto.setDescricao(result.getString("DESCRICAO"));
-                produto.setNome(result.getString("NOME"));
-                produto.setPrecoCompra(result.getDouble("PRECO_COMPRA"));
-                produto.setPrecoVenda(result.getDouble("PRECO_VENDA"));
-                produto.setQuantidade(result.getInt("QUANTIDADE"));
-                produto.setDataCadastro(result.getDate("DT_CADASTRO"));
-                //Adiciona a instância na lista
-                listaProdutos.add(produto);
-            }
+            produto.setId(result.getInt("ID"));
+            produto.setDescricao(result.getString("DESCRICAO"));
+            produto.setNome(result.getString("NOME"));
+            produto.setPrecoCompra(result.getDouble("PRECO_COMPRA"));
+            produto.setPrecoVenda(result.getDouble("PRECO_VENDA"));
+            produto.setQuantidade(result.getInt("QUANTIDADE"));
+            produto.setDataCadastro(result.getDate("DT_CADASTRO"));
+            //Adiciona a instância na list
+
         } finally {
             //Se o result ainda estiver aberto, realiza seu fechamento
             if (result != null && !result.isClosed()) {
@@ -75,7 +64,7 @@ public class daoObter {
                 connection.close();
             }
         }
-    
-        return listaProdutos;
+        return produto;
+
     }
 }
