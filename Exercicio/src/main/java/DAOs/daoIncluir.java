@@ -22,8 +22,8 @@ public class daoIncluir {
     public static void inserir(Produto produto)
             throws SQLException, Exception {
 
-        String sql1 = "INSERT INTO PRODUTO (NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE, DT_CADASTRO"
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql1 = "INSERT INTO PRODUTO (NOME, DESCRICAO, PRECO_COMPRA, PRECO_VENDA, QUANTIDADE)"
+                + " VALUES (?, ?, ?, ?, ?)";
 
         String sql2 = "INSERT INTO PRODUTO_CATEGORIA (ID_PRODUTO, ID_CATEGORIA)"
                 + "VALUES (?, ?)";
@@ -45,7 +45,6 @@ public class daoIncluir {
             preparedStatement.setDouble(3, produto.getPrecoCompra());
             preparedStatement.setDouble(4, produto.getPrecoVenda());
             preparedStatement.setInt(5, produto.getQuantidade());
-            preparedStatement.setDate(6, new java.sql.Date(System.currentTimeMillis()));
 
             //Executa o comando no banco de dados
             preparedStatement.execute();

@@ -11,7 +11,10 @@ import Exceptions.DataExceptions;
 import Exceptions.ProdutoException;
 import Servicos.Servico;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -108,9 +111,13 @@ public class CadastroProdServlet extends HttpServlet {
             request.setAttribute("prodRepreenche", prod);
         } catch (DataExceptions | ProdutoException e) {
             request.setAttribute("prodErro", e);
-            e.getMessage();
+            System.out.println(e.getMessage());
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarProd.jsp");
             dispatcher.forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroProdServlet.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/cadastrarProd.jsp");

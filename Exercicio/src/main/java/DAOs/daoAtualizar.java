@@ -19,7 +19,7 @@ public class daoAtualizar {
 
     public static void atualizar(Produto produto)
             throws SQLException, Exception {
-        String sql = "UPDATE PRODUTO SET NOME=?, DESCRICAO=?, PRECO_COMPRA=?, PRECO_VENDA=?, QUANTIDADE=?, DT_CADASTRO=?"
+        String sql = "UPDATE PRODUTO SET NOME=?, DESCRICAO=?, PRECO_COMPRA=?, PRECO_VENDA=?, QUANTIDADE=?"
                 + "WHERE (ID=?)";
 
         String sql2 = "UPDATE PRODUTO_CATEGORIA SET ID_CATEGORIA=?"
@@ -42,7 +42,6 @@ public class daoAtualizar {
             preparedStatement.setDouble(4, produto.getPrecoVenda());
             preparedStatement.setInt(5, produto.getQuantidade());
             preparedStatement.setInt(5, produto.getId());
-            preparedStatement.setDate(6, new java.sql.Date(System.currentTimeMillis()));;
 
             //Executa o comando no banco de dados
             preparedStatement.execute();

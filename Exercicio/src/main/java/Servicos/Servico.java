@@ -11,7 +11,7 @@ import DAOs.daoIncluir;
 import Exceptions.ProdutoException;
 import Exceptions.DataExceptions;
 import Validadores.ValidadorProd;
-import java.util.List;
+import java.sql.SQLException;
 
 
 
@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class Servico {
 
-    public static void CadastrarProduto(Produto prod) throws ProdutoException, DataExceptions {
+    public static void CadastrarProduto(Produto prod) throws ProdutoException, DataExceptions, SQLException {
         ValidadorProd.validar(prod);
 
         try {
