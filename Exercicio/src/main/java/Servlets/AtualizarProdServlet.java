@@ -5,17 +5,11 @@
  */
 package Servlets;
 
-import Classes.Categoria;
 import Classes.Produto;
 import Exceptions.DataExceptions;
 import Exceptions.ProdutoException;
 import Servicos.Servico;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +37,6 @@ public class AtualizarProdServlet extends HttpServlet {
 
         HttpSession sessao = request.getSession();
         Produto prod = new Produto();
-        ArrayList<Categoria> cat = new ArrayList<>();
 
         String nome = request.getParameter("nome-prod");
         String descricao = request.getParameter("descricao-prod");
@@ -87,7 +80,6 @@ public class AtualizarProdServlet extends HttpServlet {
         prod.setQuantidade(qtd);
         prod.setPrecoCompra(precoC);
         prod.setPrecoVenda(precoV);
-        prod.setCat(cat);
 
         try {
             Servico.atualizarProduto(prod);
