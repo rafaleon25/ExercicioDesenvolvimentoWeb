@@ -84,8 +84,8 @@
                         <form class="signup"  action="${pageContext.request.contextPath}/CadastroProd" method="post">
 
                             <div class="row">
-                                <c:if test="${not empty requestScope.prodErro}">
-                                    <p class="sucess"><c:out value="${requestScope.prodErro}"/></p>
+                                <c:if test="${not empty requestScope.erroCadastro}">
+                                    <p class="sucess"><c:out value="${requestScope.erroCadastro}"/></p>
                                 </c:if>
                             </div>
 
