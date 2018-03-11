@@ -5,17 +5,11 @@
  */
 package Servlets;
 
-import Classes.Categoria;
 import Classes.Produto;
 import Exceptions.DataExceptions;
 import Exceptions.ProdutoException;
 import Servicos.Servico;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,9 +36,9 @@ public class AtualizarProdServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession sessao = request.getSession();
-        Produto prod = new Produto();
-        ArrayList<Categoria> cat = new ArrayList<>();
-
+        Produto prod = new Produto();       
+        
+        String id = request.getParameter("id-prod");
         String nome = request.getParameter("nome-prod");
         String descricao = request.getParameter("descricao-prod");
         String quantidade = request.getParameter("quantidade-prod");
@@ -52,12 +46,12 @@ public class AtualizarProdServlet extends HttpServlet {
         String precoVenda = request.getParameter("preco-venda");
 
         if (precoCompra.equals("")) {
-            request.setAttribute("erroCadastro", "Favor informar uma data de compra válida");
+            request.setAttribute("erroAtualizar", "Favor informar uma data de compra válida");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/editarProd.jsp");
             dispatcher.forward(request, response);
         }
         if (precoVenda.equals("")) {
-            request.setAttribute("erroCadastro", "Favor informar uma data de venda válida");
+            request.setAttribute("erroAtualizar", "Favor informar uma data de venda válida");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/editarProd.jsp");
             dispatcher.forward(request, response);
         }
@@ -75,27 +69,33 @@ public class AtualizarProdServlet extends HttpServlet {
         }
 
         try {
-
             qtd = Integer.parseInt(quantidade);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        int idProd = 0;
+        try {
+            idProd = Integer.parseInt(id);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        prod.setId(idProd);
         prod.setNome(nome);
         prod.setDescricao(descricao);
         prod.setQuantidade(qtd);
         prod.setPrecoCompra(precoC);
         prod.setPrecoVenda(precoV);
-        prod.setCat(cat);
+
 
         try {
             Servico.atualizarProduto(prod);
             request.setAttribute("sucessCadastro", "Cadastro realizado com sucesso.");
 
         } catch (ProdutoException | DataExceptions e) {
-            request.setAttribute("erroCadastro", e.getMessage());
-            request.setAttribute("prodRepreenche", prod);
+            request.setAttribute("erroAtualizar", e.getMessage());
+            
             RequestDispatcher dispatcher = request.getRequestDispatcher("/editarProd.jsp");
             dispatcher.forward(request, response);
         }

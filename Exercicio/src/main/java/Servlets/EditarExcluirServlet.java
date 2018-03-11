@@ -73,7 +73,6 @@ public class EditarExcluirServlet extends HttpServlet {
                 Servico.excluirProduto(prod.getId());
             } catch (DataExceptions | ProdutoException e) {
                 request.setAttribute("erroExcluir", e.getMessage());
-
             }
 
             response.sendRedirect(request.getContextPath() + "/consultarProd.jsp");

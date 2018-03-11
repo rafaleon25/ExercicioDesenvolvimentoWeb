@@ -86,7 +86,7 @@
                                     <input type="text" placeholder="descrição*" name="descricao-prod" value="${sessionScope.produto.descricao}">
                                 </div>  
                                 <div class="row">
-                                    <input type="number" placeholder="qtd*"  name="quantidade" value="${sessionScope.produto.quantidade}">
+                                    <input type="number" placeholder="qtd*"  name="quantidade-prod" value="${sessionScope.produto.quantidade}">
                                 </div>
                                 <div class="row">
                                     <input type="number" placeholder="preço compra*"  name="preco-compra" value="${sessionScope.produto.precoCompra}">
