@@ -11,6 +11,7 @@ import DAOs.daoConsultar;
 import DAOs.daoExcluir;
 import DAOs.daoIncluir;
 import DAOs.daoListar;
+import DAOs.daoObter;
 import Exceptions.ProdutoException;
 import Exceptions.DataExceptions;
 import Validadores.ValidadorProd;
@@ -66,14 +67,14 @@ public class Servico {
         }
     }
 
-//    public static Produto obterProduto(Integer id) throws ProdutoException, DataExceptions {
-//
-//        try {
-//            return Dao.obter(id);
-//        } catch (Exception e) {
-//            throw new DataExceptions("Erro na fonte de dados", e);
-//        }
-//    }
+    public static Produto obterProduto(Integer id) throws ProdutoException, DataExceptions {
+
+        try {
+            return daoObter.procurar(id);
+        } catch (Exception e) {
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
 
     public static void excluirProduto(Integer id) throws ProdutoException, DataExceptions {
 

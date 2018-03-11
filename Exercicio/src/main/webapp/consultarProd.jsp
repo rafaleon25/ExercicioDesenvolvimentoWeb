@@ -101,38 +101,19 @@
                                 </tr>    
 
                                 <c:if test="${empty sessionScope.buscar}">
-                                    <c:forEach var="cli" items="${sessionScope.ResultClienteLista}">    
+                                    <c:forEach var="prod" items="${sessionScope.ResultProdLista}">    
                                         <tr>
-                                            <td><input type="radio" value="${cli.cpf}" name="selecionarCli" /></td>
-                                            <td>${cli.nome}</td>
-                                            <td>${cli.sobrenome}</td>
-                                            <td>${cli.cpf}</td>
-                                            <td>${cli.email}</td>
-                                            <td>${cli.celular}</td>
+                                            <td><input type="radio" value="${prod.id}" name="selecionarCli" /></td>
+                                            <td>${prod.nome}</td>
+                                            <td>${prod.descricao}</td>
+                                            <td>${prod.quantidade}</td>
+                                            <td>${prod.precoCompra}</td>
+                                            <td>${prod.precoVenda}</td>
 
-                                            <td style="visibility: hidden">${cli.id}</td>
+                                            <td style="visibility: hidden">${prod.id}</td>
                                         </tr>
                                     </c:forEach>
                                 </c:if>
-
-                                <c:if test="${sessionScope.buscar != null}">
-                                    <tr>
-                                        <td><input type="radio" value="${sessionScope.ResultCli.cpf}" name="selecionarCli" /></td>
-                                        <td>${sessionScope.ResultCli.nome}</td>
-                                        <td>${sessionScope.ResultCli.sobrenome}</td>
-                                        <td>${sessionScope.ResultCli.cpf}</td>
-                                        <td>${sessionScope.ResultCli.email}</td>
-                                        <td>${sessionScope.ResultCli.celular}</td>
-                                        <td>${sessionScope.ResultCli.genero}</td>
-                                        <td>${sessionScope.ResultCli.dataNascimento}</td>
-                                        <td>${sessionScope.ResultCli.estado}</td>
-                                        <td>${sessionScope.ResultCli.cidade}</td>
-                                        <td>${sessionScope.ResultCli.cep}</td>
-                                        <td>${sessionScope.ResultCli.endereco}</td>
-                                        <td style="visibility: hidden">${sessionScope.ResultCli.id}</td>
-                                    </tr>
-                                </c:if>
-
 
                             </table>
                         </div>
