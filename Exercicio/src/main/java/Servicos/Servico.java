@@ -7,11 +7,15 @@ package Servicos;
 
 import Classes.Produto;
 import DAOs.daoAtualizar;
+import DAOs.daoConsultar;
+import DAOs.daoExcluir;
 import DAOs.daoIncluir;
+import DAOs.daoListar;
 import Exceptions.ProdutoException;
 import Exceptions.DataExceptions;
 import Validadores.ValidadorProd;
 import java.sql.SQLException;
+import java.util.List;
 
 
 
@@ -42,26 +46,26 @@ public class Servico {
         }
     }
 
-//    public static Produto procurarProduto(String valor) throws ProdutoException, DataExceptions {
-//
-//        try {
-//            return Dao.procurar(cpf);
-//
-//        } catch (Exception e) {
-//            throw new DataExceptions("Erro na fonte de dados", e);
-//        }
-//    }
-//
-//    public static List<Produto> listarProduto() throws ProdutoException, DataExceptions {
-//
-//        try {
-//            return Dao.listar();
-//
-//        } catch (Exception e) {
-//            throw new DataExceptions("Erro na fonte de dados", e);
-//        }
-//    }
-//
+    public static List<Produto> procurarProduto(String valor) throws ProdutoException, DataExceptions {
+
+        try {
+            return daoConsultar.procurar(valor);
+
+        } catch (Exception e) {
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
+
+    public static List<Produto> listar() throws ProdutoException, DataExceptions {
+
+        try {
+            return daoListar.listar();
+
+        } catch (Exception e) {
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
+
 //    public static Produto obterProduto(Integer id) throws ProdutoException, DataExceptions {
 //
 //        try {
@@ -70,15 +74,15 @@ public class Servico {
 //            throw new DataExceptions("Erro na fonte de dados", e);
 //        }
 //    }
-//
-//    public static void excluirProduto(Integer id) throws ProdutoException, DataExceptions {
-//
-//        try {
-//
-//            Dao.excluir(id);
-//        } catch (Exception e) {
-//            throw new DataExceptions("Erro na fonte de dados", e);
-//        }
-//    }
+
+    public static void excluirProduto(Integer id) throws ProdutoException, DataExceptions {
+
+        try {
+
+            daoExcluir.excluir(id);
+        } catch (Exception e) {
+            throw new DataExceptions("Erro na fonte de dados", e);
+        }
+    }
 
 }

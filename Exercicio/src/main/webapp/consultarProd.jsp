@@ -78,7 +78,7 @@
 
 
                         <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite o CPF" name="buscaProd">
+                            <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaProd">
                             <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
 
