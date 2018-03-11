@@ -82,7 +82,7 @@
 
                     </form>
 
-                    <form class="editCli" action="${pageContext.request.contextPath}/EditarProd" method="post">
+                    <form class="editCli" action="${pageContext.request.contextPath}/EditarExcluir" method="post">
 
                         <div id="bg"></div>
                         <div id="tabelaConsulta">
@@ -133,8 +133,8 @@
                         </div>
 
                         <div class="form-footer">
-                            <button class="botoes" name="btnExluir" value="exluirProd">EXCLUIR<span class="fa fa-ban"></span></button>
-                            <button class="botoes" name="btnEditar" value="editarProd">EDITAR<span class="fa fa-thumbs-o-up"></span></button>
+                            <button class="botoes" name="btnExluir" value="exluirProd">EXCLUIR</button>
+                            <button class="botoes" name="btnEditar" value="editarProd">EDITAR</button>
                         </div>
                     </form>
                 </div>
