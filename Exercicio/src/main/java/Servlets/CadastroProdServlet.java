@@ -63,12 +63,12 @@ public class CadastroProdServlet extends HttpServlet {
 
         if (precoCompra.equals("")) {
             request.setAttribute("erroCadastro", "Favor informar uma data de nascimento válida");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/CadastroProd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
         }
         if (precoVenda.equals("")) {
             request.setAttribute("erroCadastro", "Favor informar uma data de nascimento válida");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/CadastroProd.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
             dispatcher.forward(request, response);
         }
 
@@ -137,7 +137,7 @@ public class CadastroProdServlet extends HttpServlet {
         }
         sessao.setAttribute("prod", prod);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/CadastroProd.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
 
     }
