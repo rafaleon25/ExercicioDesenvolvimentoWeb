@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class daoExcluir {
     public static void excluir(Integer id) throws SQLException, Exception {
 
-        String sql = "DELETE FROM PRODUTO WHERE ID=?";
+        String sql = "DELETE FROM PRODUTO_CATEGORIA WHERE ID_PRODUTO=?; DELETE FROM PRODUTO WHERE ID=?";
         //Conexão para abertura e fechamento
         Connection connection = null;
         //Statement para obtenção através da conexão, execução de
@@ -30,6 +30,7 @@ public class daoExcluir {
             preparedStatement = connection.prepareStatement(sql);
             //Configura os parâmetros do "PreparedStatement"
             preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
 
             //Executa o comando no banco de dados
             preparedStatement.execute();
