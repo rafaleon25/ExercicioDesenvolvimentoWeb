@@ -52,8 +52,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/index.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/consultarProd.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
 

@@ -36,7 +36,7 @@ public class daoListar {
             connection = ConnectionUtils.getConnection();
             //Cria um statement para execução de instruções SQL
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setBoolean(1, true);
+            
 
             //Executa a consulta SQL no banco de dados
             result = preparedStatement.executeQuery();

@@ -70,7 +70,7 @@ public class Servico {
     public static Produto obterProduto(Integer id) throws ProdutoException, DataExceptions {
 
         try {
-            return daoObter.procurar(id);
+            return daoObter.obter(id);
         } catch (Exception e) {
             throw new DataExceptions("Erro na fonte de dados", e);
         }

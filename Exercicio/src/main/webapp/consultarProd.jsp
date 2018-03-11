@@ -46,8 +46,8 @@
                         <nav class="horizontal-nav full-width horizontalNav-notprocessed">
                             <ul class="sf-menu">
                                 <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/cadastrarCliente.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/cadastrarUsuario.jsp">Usuario</a></li>
+                                <li class="current"><a href="${pageContext.request.contextPath}/index.jsp">Cliente</a></li>                                
+                                <li><a href="${pageContext.request.contextPath}/consultarProd.jsp">Usuario</a></li>
                                 <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
                                 <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
                             </ul>
@@ -73,9 +73,7 @@
 
 
 
-                    <form class="buscaCliente"  action="${pageContext.request.contextPath}/ConsultarProd" method="post">
-
-
+                    <form class="buscaCliente"  action="${pageContext.request.contextPath}/ConsultaProd" method="post">
 
                         <div class="busca">
                             <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaProd">
@@ -87,7 +85,7 @@
                     <form class="editCli" action="${pageContext.request.contextPath}/EditarProd" method="post">
 
                         <div id="bg"></div>
-                        <div id="tabelaConsultaCliente">
+                        <div id="tabelaConsulta">
                             <table>
                                 <tr>
                                     <th></th>
@@ -103,7 +101,7 @@
                                 <c:if test="${empty sessionScope.buscar}">
                                     <c:forEach var="prod" items="${sessionScope.ResultProdLista}">    
                                         <tr>
-                                            <td><input type="radio" value="${prod.id}" name="selecionarCli" /></td>
+                                            <td><input type="radio" value="${prod.id}" name="selecionarProd" /></td>
                                             <td>${prod.nome}</td>
                                             <td>${prod.descricao}</td>
                                             <td>${prod.quantidade}</td>
@@ -114,6 +112,22 @@
                                         </tr>
                                     </c:forEach>
                                 </c:if>
+
+                                <c:if test="${not empty sessionScope.buscar}">
+                                    <c:forEach var="prod" items="${sessionScope.ResultProdLista2}">    
+                                        <tr>
+                                            <td><input type="radio" value="${prod.id}" name="selecionarProd" /></td>
+                                            <td>${prod.nome}</td>
+                                            <td>${prod.descricao}</td>
+                                            <td>${prod.quantidade}</td>
+                                            <td>${prod.precoCompra}</td>
+                                            <td>${prod.precoVenda}</td>
+
+                                            <td style="visibility: hidden">${prod.id}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:if>
+
 
                             </table>
                         </div>
@@ -130,8 +144,8 @@
         <!--==============================footer=================================-->
 
         <footer>
-            
+
         </footer>
-       
+
     </body>
 </html>

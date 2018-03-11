@@ -10,10 +10,7 @@ import Exceptions.DataExceptions;
 import Exceptions.ProdutoException;
 import Servicos.Servico;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,21 +36,33 @@ public class ConsultaProdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String valor = request.getParameter("buscaProd");
+        
         HttpSession sessao = request.getSession();
+        
+        String valor = request.getParameter("buscaProd");
         sessao.setAttribute("buscar", valor);
 
         Produto prod = new Produto();
-
+        
         try {
 
             if (valor == null || valor.trim().equals("")) {
-                List<Produto> listaProd = Servico.procurarProduto(valor);
+                List<Produto> listaProd = Servico.listar();
                 if (!listaProd.isEmpty() || listaProd != null) {
                     sessao.setAttribute("ResultProdLista", listaProd);
                 } else {
                     request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
                 }
+            }else {
+                List<Produto> listaProd2 ;
+                listaProd2 = Servico.procurarProduto(valor);
+               if (!listaProd2.isEmpty() || listaProd2 != null) {
+                    sessao.setAttribute("ResultProdLista2", listaProd2);
+                } else {
+                    request.setAttribute("erroConsulta", "Não houve resultados para esta pesquisa.");
+                }
+                
+                
             }
         } catch (DataExceptions | ProdutoException e) {
             request.setAttribute("erroConsulta", e.getMessage());
