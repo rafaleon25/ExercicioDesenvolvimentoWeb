@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cliente
-    Created on : 17/10/2017, 20:46:33
+    Document   : consultarProd
+    Created on : 13/03/2018, 20:26:37
     Author     : Nakamura-PC
 --%>
 
@@ -9,104 +9,104 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
 
-        <title>Consultar produtos</title>
+        <style type="text/css">
+            .navbar {
+                width: 80%;
+            }
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+            .cad-prod {
+                margin: 25px;
+            }
 
-        <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+            .input-group {
+                width: 40%;
+                margin: 10px;
+            }
 
+            .btn{
+                margin: 5px;
+            }
 
+        </style>
 
-        <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
-        <script src="${pageContext.request.contextPath}/js/superfish.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.ui.totop.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
-
-        <script>
-            $(document).ready(function () {
-                $().UItoTop({easingType: 'easeOutQuart'});
-            });
-        </script>
-
+        <title>Loja Prod</title>
     </head>
+
     <body>
-        <!--==============================header=================================-->
-        <header>
-            <div class="container_12">
-                <div class="grid_12">
-                    <div class="menu_block">
-                        <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/index.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/consultarProd.jsp">Usuario</a></li>
-                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
-                            </ul>
-                        </nav>
-                        <div class="clear"></div>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="headder">
+                    <h1>Loja Produtos</h1>
+
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                        <a class="navbar-brand">Loja</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/index.jsp">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/cadastrarProd.jsp">Cadastrar</a>
+                                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}/consultarProd.jsp">Consultar</a>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-
-
             </div>
 
-        </header>
 
-        <div class="content"><div class="ic"></div>
 
-            <div class="container_12">
-                <div class="grid_8">
-                    <div class="tituloCliente">
-
-                        <h5 class="opcao">CONSULTAR PRODUTOS</h5>
-
-                    </div>          
-
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="cad-prod">Consultar Produto</h4>
 
 
                     <form class="buscaCliente"  action="${pageContext.request.contextPath}/ConsultaProd" method="post">
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend" id="campo-nome">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            <button type="submit" class="btn btn-primary btn-sm">Pesquisar</button>
 
-                        <div class="busca">
-                            <input type="text" id="busca1" placeholder="Digite sua busca" name="buscaProd">
-                            <button id="botoesBusca" type="submit">BUSCAR</button>
                         </div>
-
                     </form>
 
-                    <form class="editCli" action="${pageContext.request.contextPath}/EditarExcluir" method="post">
 
-                        <div id="bg"></div>
-                        <div id="tabelaConsulta">
-                            <table>
+                    <form class="editCli" action="${pageContext.request.contextPath}/EditarExcluir" method="post">   
+                        <table class="table">
+                            <thead class="thead-dark">
                                 <tr>
                                     <th></th>
-                                    <th>Nome</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>
-                                    <th>Preço de Compra</th>
-                                    <th>Preço de Venda</th>    
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Valor Comp.</th>
+                                    <th scope="col">Valor Vend.</th>
+                                    <th scope="col">Qnt</th>
                                     <th style="visibility: hidden">ID</th>
+                                </tr>
 
-                                </tr>    
+                            </thead>                            
+                            <tbody>
 
                                 <c:if test="${empty sessionScope.buscar}">
-                                    <c:forEach var="prod" items="${sessionScope.ResultProdLista}">    
+                                    <c:forEach var="prod" items="${sessionScope.ResultProdLista}">
                                         <tr>
                                             <td><input type="radio" value="${prod.id}" name="selecionarProd" /></td>
                                             <td>${prod.nome}</td>
                                             <td>${prod.descricao}</td>
-                                            <td>${prod.quantidade}</td>
                                             <td>${prod.precoCompra}</td>
                                             <td>${prod.precoVenda}</td>
+                                            <td>${prod.quantidade}</td> 
 
                                             <td style="visibility: hidden">${prod.id}</td>
                                         </tr>
@@ -119,33 +119,26 @@
                                             <td><input type="radio" value="${prod.id}" name="selecionarProd" /></td>
                                             <td>${prod.nome}</td>
                                             <td>${prod.descricao}</td>
-                                            <td>${prod.quantidade}</td>
                                             <td>${prod.precoCompra}</td>
                                             <td>${prod.precoVenda}</td>
+                                            <td>${prod.quantidade}</td>
 
                                             <td style="visibility: hidden">${prod.id}</td>
                                         </tr>
                                     </c:forEach>
                                 </c:if>
 
+                            </tbody>
+                        </table>
 
-                            </table>
-                        </div>
-
-                        <div class="form-footer">
-                            <button class="botoes" name="btnExluir" value="exluirProd">EXCLUIR</button>
-                            <button class="botoes" name="btnEditar" value="editarProd">EDITAR</button>
-                        </div>
+                        <button class="btn btn-secondary" name="btnEditar" value="editarProd">Alterar</button>
+                        <button class="btn btn-danger" name="btnExluir" value="exluirProd">Excluir</button>
                     </form>
                 </div>
             </div>
-        </div>
 
-        <!--==============================footer=================================-->
-
-        <footer>
-
-        </footer>
-
+        </div>             
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     </body>
 </html>

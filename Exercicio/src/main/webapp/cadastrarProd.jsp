@@ -1,6 +1,6 @@
 <%-- 
-    Document   : editarProd
-    Created on : 13/03/2018, 21:22:20
+    Document   : cadastrarProd1
+    Created on : 13/03/2018, 19:57:55
     Author     : Nakamura-PC
 --%>
 
@@ -22,12 +22,12 @@
             .cad-prod {
                 margin: 25px;
             }
+
         </style>
 
         <title>Loja Prod</title>
     </head>
     <body>
-
         <div class="container">
 
             <div class="row">
@@ -45,7 +45,7 @@
                                 <a class="nav-item nav-link" href="${pageContext.request.contextPath}/index.jsp">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
-                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/cadastrarProd.jsp">Cadastrar</a>
+                                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}/cadastrarProd.jsp">Cadastrar</a>
                                 <a class="nav-item nav-link" href="${pageContext.request.contextPath}/consultarProd.jsp">Consultar</a>
                             </div>
                         </div>
@@ -56,17 +56,19 @@
                     <div class="col-12">
                         <h4 class="cad-prod">Cadastrar Produto</h4>
 
-                        <form class="signup" action="${pageContext.request.contextPath}/AtualizarProd" method="post">
+                        <form class="signup"  action="${pageContext.request.contextPath}/CadastroProd" method="post">
 
                             <div class="row">
-                                <input style="visibility: hidden" type="text" placeholder="id" name="id-prod" value="${sessionScope.produto.id}">
-                            </div> 
+                                <c:if test="${not empty requestScope.erroCadastro}">
+                                    <p class="sucess"><c:out value="${requestScope.erroCadastro}"/></p>
+                                </c:if>
+                            </div>
 
                             <div class="input-group input-group-sm mb-3">
                                 <div class="input-group-prepend" id="campo-nome">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">Nome</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Small" name="nome-prod" value="${sessionScope.produto.nome}"
+                                <input type="text" class="form-control" aria-label="Small" value="${requestScope.prodRepreenche.nome}" name="nome-prod"
                                        aria-describedby="inputGroup-sizing-sm">
                             </div>
 
@@ -74,7 +76,7 @@
                                 <div class="input-group-prepend" id="campo-desc">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">Descrição</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Small" name="descricao-prod" value="${sessionScope.produto.descricao}"
+                                <input type="text" class="form-control" aria-label="Small" value="${requestScope.prodRepreenche.descricao}" name="descricao-prod"
                                        aria-describedby="inputGroup-sizing-sm">
                             </div>
 
@@ -82,7 +84,7 @@
                                 <div class="input-group-prepend" id="campo-pCompra">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">Preço compra: $</span>
                                 </div>
-                                <input type="number" class="form-control" aria-label="Small" name="preco-compra" value="${sessionScope.produto.precoCompra}"
+                                <input type="number" class="form-control" aria-label="Small" value="${requestScope.prodRepreenche.precoCompra}" name="preco-compra"
                                        aria-describedby="inputGroup-sizing-sm">
                             </div>
 
@@ -90,7 +92,7 @@
                                 <div class="input-group-prepend" id="campo-pVenda">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">Preço venda: $</span>
                                 </div>
-                                <input type="number" class="form-control" aria-label="Small" name="preco-venda" value="${sessionScope.produto.precoVenda}"
+                                <input type="number" class="form-control" aria-label="Small" value="${requestScope.prodRepreenche.precoVenda}" name="preco-venda"
                                        aria-describedby="inputGroup-sizing-sm">
                             </div>
 
@@ -98,18 +100,24 @@
                                 <div class="input-group-prepend" id="campo-qnt">
                                     <span class="input-group-text" id="inputGroup-sizing-sm">Quantidade</span>
                                 </div>
-                                <input type="number" class="form-control" aria-label="Small" name="quantidade-prod" value="${sessionScope.produto.quantidade}"
+                                <input type="number" class="form-control" aria-label="Small" value="${requestScope.prodRepreenche.quantidade}" name="quantidade-prod"
                                        aria-describedby="inputGroup-sizing-sm">
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
                         </form>
 
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+
             </div>
         </div>
-                                       
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>

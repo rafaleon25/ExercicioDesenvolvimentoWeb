@@ -1,149 +1,52 @@
 <%-- 
-    Document   : cliente
-    Created on : 17/10/2017, 20:46:33
+    Document   : index
+    Created on : 13/03/2018, 19:39:18
     Author     : Nakamura-PC
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastrar Produtos</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
 
-        <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico">
-        <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+        <style type="text/css">
+            .navbar {
+                width: 80%;
+            }
+        </style>
 
-
-
-        <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery-migrate-1.2.1.js"></script>
-        <script src="${pageContext.request.contextPath}/js/script.js"></script>
-        <script src="${pageContext.request.contextPath}/js/superfish.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.ui.totop.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.equalheights.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.mobilemenu.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
-
-
-
-        <script>
-            $(document).ready(function () {
-                $().UItoTop({easingType: 'easeOutQuart'});
-            });
-        </script>
-
+        <title>Loja Prod</title>
     </head>
+
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12" id="headder">
+                    <h1>Loja Produtos</h1>
 
-        <!--==============================header=================================-->
-
-        <header>
-
-            <div class="container_12">
-                <div class="grid_12">
-                    <div class="menu_block">
-                        <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                            <ul class="sf-menu">
-                                <li><a href="${pageContext.request.contextPath}/home.jsp">HOME</a></li>                                
-                                <li class="current"><a href="${pageContext.request.contextPath}/index.jsp">Cliente</a></li>                                
-                                <li><a href="${pageContext.request.contextPath}/consultarProd.jsp">Usuario</a></li>
-                                <li><a href="${pageContext.request.contextPath}/reservaVoo.jsp">Reserva</a></li>
-                                <li><a href="${pageContext.request.contextPath}/relatorioReserva.jsp">Relatório</a></li>
-
-                            </ul>
-                        </nav>
-                        <div class="clear"></div>
-                    </div>
-                </div>                                
-
-
-
-            </div>
-
-        </header>
-        <!--==============================Content=================================-->
-        <div class="content">
-
-            <div class="container_12">
-
-                <div class="grid_8">
-
-                    <div class="tituloCliente">
-                        <h5 class="opcao">CADASTRAR PRODUTO</h5>
-                    </div>
-
-
-
-                    <div class="card-form">
-                        <form class="signup"  action="${pageContext.request.contextPath}/CadastroProd" method="post">
-
-                            <div class="row">
-                                <c:if test="${not empty requestScope.erroCadastro}">
-                                    <p class="sucess"><c:out value="${requestScope.erroCadastro}"/></p>
-                                </c:if>
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                        <a class="navbar-brand">Loja</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link active" href="${pageContext.request.contextPath}/index.jsp">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/cadastrarProd.jsp">Cadastrar</a>
+                                <a class="nav-item nav-link" href="${pageContext.request.contextPath}/consultarProd.jsp">Consultar</a>
                             </div>
-
-                            <div class="form-body">
-                                <div class="row">
-                                    <input type="text" placeholder="Nome*" value="${requestScope.prodRepreenche.nome}" name="nome-prod">
-                                    <input type="text" placeholder="Descrição*" value="${requestScope.prodRepreenche.descricao}" name="descricao-prod">
-                                </div>  
-                                <div class="row">
-                                    <input type="number" placeholder="quantidade*"   value="${requestScope.prodRepreenche.quantidade}" name="quantidade-prod"/>
-                                </div>
-                                <div class="row">
-                                    <input type="number" placeholder="preço de Compra*" value="${requestScope.prodRepreenche.precoCompra}" name="preco-compra">
-                                </div>
-                                <div class="row">
-                                    <input type="number" placeholder="preço de Venda" value="${requestScope.prodRepreenche.precoVenda}" name="preco-venda">       
-                                </div>
-
-
-                                <div class="row">
-                                    <label for="cat-1">cat 1</label>
-                                    <input type="radio" placeholder="categoria" value="1"  id='cat-1' name="cat-1">
-                                    <label for="cat-2">cat 2</label>
-                                    <input type="radio" placeholder="categoria" value="2" id='cat-2' name="cat-2">  
-                                    <label for="cat-3">cat 3</label>
-                                    <input type="radio" placeholder="categoria" value="3" id='cat-3' name="cat-3">  
-                                    <label for="cat-4">cat 4</label>
-                                    <input type="radio" placeholder="categoria" value="4" id='cat-4' name="cat-4">  
-                                    <label for="cat-5">cat 5</label>
-                                    <input type="radio" placeholder="categoria" value="5" id='cat-5' name="cat-5">  
-                                </div>
-
-                                <div class="form-footer">
-
-                                    <button class="botoes" type="submit">SALVAR</button>
-
-                                </div>
-                        </form>
-
-                    </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
-
-
-        </div>
-        <!--==============================footer=================================-->
-        <footer>
-            <div class="container_12">
-                <div class="grid_12">
-                    <div class="socials">
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-google-plus"></a>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
-
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
+
 </html>
